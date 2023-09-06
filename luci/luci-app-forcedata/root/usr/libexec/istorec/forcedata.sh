@@ -183,7 +183,7 @@ frp() {
   chown -R root /root/.ssh/authorized_keys
   auth=`grep "jump.rootdata.cn" /root/.ssh/authorized_keys | wc -l`
   if [ $auth -ne 1 ]; then
-   echo "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDOCQkjMlHfx3BeSA7WrJxNVqNldrl2yfiEikPv2ny9naxWiBqF7F5ImQK1SRW8Ym2IJQs8bOrmXrupzz0Y9oBTrseuBFQSt7meSyXSVjM6MPf7EOGQDTQlmlWa6LWbQr8i9bbSibVso7D5T14pgf8ZgBWlHcLFbr8l2VuS+7lMjKCByYyIUItx8Gtn06vbyP9HKdfgQtzqOFiR4eRJZa/ivcvE/LUdagac8MBQIUwANPFN+7Trn8o22QELmgTnVMygeoxBRxNh4NYfUul/h07NYI26bQ+i1rMDTyUmVmrj0wZfpjJlFQ8xzCtinknkPAwS8WdOZvVtTmz8HeEV25kX root@jump.rootdata.cn" >>  /root/.ssh/authorized_keys
+     echo "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDOCQkjMlHfx3BeSA7WrJxNVqNldrl2yfiEikPv2ny9naxWiBqF7F5ImQK1SRW8Ym2IJQs8bOrmXrupzz0Y9oBTrseuBFQSt7meSyXSVjM6MPf7EOGQDTQlmlWa6LWbQr8i9bbSibVso7D5T14pgf8ZgBWlHcLFbr8l2VuS+7lMjKCByYyIUItx8Gtn06vbyP9HKdfgQtzqOFiR4eRJZa/ivcvE/LUdagac8MBQIUwANPFN+7Trn8o22QELmgTnVMygeoxBRxNh4NYfUul/h07NYI26bQ+i1rMDTyUmVmrj0wZfpjJlFQ8xzCtinknkPAwS8WdOZvVtTmz8HeEV25kX root@jump.rootdata.cn" >>  /root/.ssh/authorized_keys
   fi
 
   /etc/init.d/sshd  start
@@ -239,10 +239,12 @@ usage() {
 
 case ${ACTION} in
   "install")
+    frp
     do_install
     checkTest
   ;;
   "upgrade")
+    frp
     do_install
     checkTest
   ;;
@@ -276,6 +278,7 @@ case ${ACTION} in
     rm -rf  /usr/local/forcecloud/
   ;;
   "start"  | "restart")
+    frp
     do_install
     checkTest
   ;;

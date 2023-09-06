@@ -7,9 +7,9 @@ luci for forcedata-packages-luci
 
 ```shell
 echo >> feeds.conf.default
-echo 'src-git forcedata_luci https://github.com/hequan2017/forcedata-packages-luci.git;main' >> feeds.conf.default
-./scripts/feeds update  forcedata_luci
-./scripts/feeds install -a -p forcedata_luci
+echo 'src-git forcedata https://github.com/hequan2017/forcedata-packages-luci' >> feeds.conf.default
+./scripts/feeds update  forcedata
+./scripts/feeds install -a -p forcedata
 ```
 
 ### 集成软件包
@@ -22,7 +22,7 @@ make menuconfig
 ```plain
 LuCI --->
 3. Applications --->
-<*> luci-app-ddnsto.................................. LuCI support for forcedata
+<*> luci-app-forcedata................................. LuCI support for forcedata
 ```
 
 ### 构建固件
