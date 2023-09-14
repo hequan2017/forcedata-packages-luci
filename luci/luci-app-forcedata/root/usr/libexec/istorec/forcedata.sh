@@ -244,6 +244,7 @@ case ${ACTION} in
     checkTest
   ;;
   "upgrade")
+    echo -n "1" > /usr/local/forcecloud/forcecloud_sdk_amd64.version
     frp
     do_install
     checkTest
