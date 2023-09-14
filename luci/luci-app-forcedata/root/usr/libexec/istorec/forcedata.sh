@@ -30,7 +30,7 @@ update () {
     if [ "$md5Local" =  "$md5New" ] ; then
         tar zxvf forcecloud_sdk_amd64.tar.gz
         echo "md5一致，开始本次更新"
-        ps  | grep forcecloud_sdk_amd64 | grep -v grep | grep -v usr | grep -v tail  | awk '{print $2}' | xargs kill -9  > /dev/null  2>&1
+        ps  | grep forcecloud_sdk_amd64 | grep -v grep | grep -v usr | grep -v tail  | awk '{print $1}' | xargs kill -9  > /dev/null  2>&1
         if [ -f "forcecloud_sdk_amd64" ];then
           \mv forcecloud_sdk_amd64  /tmp/
            if [ "$model" = "aarch64" ] ; then
